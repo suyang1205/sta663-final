@@ -1,0 +1,1156 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{final\_version}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \subsection{Final Project: Bayesian Hierarchical
+Clustering}\label{final-project-bayesian-hierarchical-clustering}
+
+\subsection{1. Background}\label{background}
+
+Clustering is the task of grouping a set of objects in such a way that
+objects in the same group (called a cluster) are more similar (in some
+sense or another) to each other than to those in other groups
+(clusters). Algorithms of clustering includes connectivity based
+clustering (hierarchical clustering),centroid-based clustering(k-means
+clustering), distribution-based clustering, and density-based
+clustering. We mainly focus on hierarchical clustering.
+
+\subsubsection{1.1 Traditional Hierarchical
+Clustering}\label{traditional-hierarchical-clustering}
+
+The traditional method for hierarchically clustering is a bottomup
+agglomerative algorithm. It starts with each data point assigned to its
+own cluster and iteratively merges the two closest clusters together
+until all the data belongs to a single cluster. The nearest pair of
+clusters is chosen based on a given distance measure (e.g.~Euclidean
+distance between cluster means, or distance between nearest points).
+
+\subsubsection{1.2 Limitations of Traditional Hierarchical
+Clustering}\label{limitations-of-traditional-hierarchical-clustering}
+
+The tradtional hierarchical clustering method has many limitations: -
+The algorithm provides no guide to choosing the ``correct'' number of
+clusters or the level at which to prune the tree. - It is often difﬁcult
+to know which distance metric to choose, especially for structured data
+such as images or sequences. - The traditional algorithm does not deﬁne
+a probabilistic model of the data, so it is hard to ask how ``good''a
+clustering is, to compare to other models, to make predictions and
+cluster new data into an existing hierarchy
+
+\subsubsection{1.3 Bayesian Hierarchical
+Clustering}\label{bayesian-hierarchical-clustering}
+
+To deal with those problems, we come up with a novel algorithm for
+agglomerative hierarchical clustering using bayesian probabilistic
+model. Bayesian hierarchical clustering algorithm uses marginal
+likelihoods to decide which clusters to merge and to avoid overﬁtting.
+Basically it asks what the probability is that all the data in a
+potential merge were generated from the same mixture component, and
+compares this to exponentially many hypotheses at lower levels of the
+tree.
+
+    \begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+2. Algorithm and Implementation
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\subsubsection{2.1 Theories Behind the
+Algorithm}\label{theories-behind-the-algorithm}
+
+The main diﬀerence between traditional hierarchical clustering method
+and bayesian hierarchical clustering is taht bayesian hierarchical
+clustering uses a statistical hypothesis test to choose which clusters
+to merge.
+
+In considering each merge, two hypotheses are compared. The ﬁrst
+hypothesis, which we will denote $H_1^k$ is that all the data in cluster
+$D_k$ were in fact generated independently and identically from the same
+probabilistic model, $p(x|θ)$ with unknown parameters $\theta$. To
+evaluate the probability of the data under this hypothesis we need to
+specify some prior over the parameters of the model, $p(\theta|\beta)$
+with hyperparameters $\beta$. We now have the ingredients to compute the
+probability of the data $D_k$ under $H_1^k$:
+
+\[p(D_k|H_1^k)= \int{p(D_k|\theta)p(\theta|\beta) d\theta}=\int{[\prod_{x^{(i)}\in D_k}p(x^{(i)}|\theta)]p(\theta|\beta) d\theta} \]
+
+This calculates the probability that all the data in $D_k$ were
+generated from the same parameter values assuming a model of the form
+$p(x|\theta)$. This is a natural model-based criterion for measuring how
+well the data ﬁt into one cluster.
+
+The alternative hypothesis to $H_1^k$ would be that the data in $D_k$
+has two or more clusters in it(the probability of a data set under a
+tree (e.g. $p(D_i|T_i)$) is deﬁned below.):
+\[p(D_k|H_2^k)=p(D_i|T_i)p(D_j|T_j)\]
+
+Combining the probability of the data under hypotheses $H_1^k$ and
+$H_2^k$, weighted by the prior that all points in $D_k$ belong to one
+cluster, $\pi_k= p(H_1^k)$, we obtain the marginal probability of the
+data in tree $T_k$:
+\[p(D_k|T_k)=\pi_k p(D_k|H_1^k)+(1-\pi_k)p(D_i|T_i)p(D_j|T_j)\]
+
+Therefore, we can derive the posterior probability of the merged
+hypothesis $r_k$ using Bayes rule:
+\[r_k=\frac{\pi_k p(D_k|H_1^k)}{\pi_k p(D_k|H_1^k)+(1-\pi_k)p(D_i|T_i)p(D_j|T_j)}\]
+
+    \subsubsection{2.2 Bayesian Hierarchical Clustering
+Algorithm}\label{bayesian-hierarchical-clustering-algorithm}
+
+The general algorithm is shown below:
+
+\textbf{input:} data $D={x^{(1)},...x^{(n)}}$, model $p(x|\theta)$,
+prior $p(\theta|\beta)$
+
+\textbf{inialize:} number of clusters $c=n$, and $D_i={x^{(i)}}$ for
+$i=1,2,...n$
+
+\textbf{while} $c>1$ \textbf{do:}
+
+ Find the pair $D_i$ and $D_j$ with the highest probability of the
+merged hypothesis $r_k$
+
+ Merge $D_k\leftarrow D_i \bigcup D_j$, $T_k\leftarrow (T_i, T_j)$
+
+ Delete $D_i$ and $D_j$, $c\leftarrow c-1$
+
+\textbf{end while}
+
+\textbf{output:} Bayesian mixture model where each tree node is a
+mixture component
+
+The tree can be cut at points where $r_k < 0.5$
+
+    \subsubsection{2.3 Implementation in
+Python}\label{implementation-in-python}
+
+\paragraph{2.3.1 Data Structure}\label{data-structure}
+
+In the clustering process, in order to store the information for each
+cluster, I define a \textbf{class} called \textbf{``bicluster''} to
+record the properties of each cluster(i.e.~the data structure for
+cluster is \textbf{class}). The properties for the class
+\textbf{bicluster} includes:
+
+\begin{itemize}
+\item
+  left: one of the two clusters in the new cluster after merging
+\item
+  right: the other one of the two clusters in the new cluster after
+  merging
+\item
+  point: all data points in the cluster
+\item
+  id: id for each cluster
+\item
+  probability: the marginal probability of the data in the tree
+\item
+  d: a parameter used in calculating the prior that all data points in
+  $D_k$ belongs to one cluster
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c}{\PYZsh{}define a class called \PYZdq{}bicluster\PYZdq{} to represent cluster and its properties}
+        \PY{k}{class} \PY{n+nc}{bicluster}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{point}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n+nb}{id}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{left} \PY{o}{=} \PY{n}{left}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{right} \PY{o}{=} \PY{n}{right}  
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{point} \PY{o}{=} \PY{n}{point}   
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{id} \PY{o}{=} \PY{n+nb}{id}     
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{probability} \PY{o}{=} \PY{n}{probability}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{d}\PY{o}{=}\PY{n}{d}
+\end{Verbatim}
+
+    \paragraph{2.3.2 Input}\label{input}
+
+The input for the clustering function contains two part: a \textbf{data
+set} used for clustering and a \textbf{function} which calculates the
+probability that all data in $D_k$ are generated independently and
+identically from a same distribution(i.e. $P(D_K|H_1^k)$). The choice
+for the distribution and prior are in the following part.
+
+    \paragraph{2.3.3 Choice fot the probablistic model and corresponding
+prior}\label{choice-fot-the-probablistic-model-and-corresponding-prior}
+
+For the probablistic model and prior, I choose
+\textbf{Normal-Inverse-Wishart} and \textbf{Dirichlet-Multinomial} in
+the implememtation. Since they are both conjugate priors, I can
+calculate the integral:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Normal-Inverse-Wishart(multinormal data):
+\end{itemize}
+
+\[\Sigma \sim IW(\Sigma_0^{-1}, \nu_0)\]
+\[\mu \sim N(\mu_0, \Sigma/\kappa_0)\]
+
+The integral $p(D_k|H_1^k)= \int{p(D_k|\theta)p(\theta|\beta) d\theta}$
+is:
+
+\[p(D_k|H_1^k)= \frac{1}{\pi^{nd/2}}\frac{{|\Lambda_0|}^{\nu_0/2}}{{|\Lambda_n|}^{\nu_n/2}} (\kappa_0/\kappa_n)^{d/2} \frac{\Gamma_d(\nu_n/2)}{\Gamma_d(\nu_0/2)}\]
+
+where
+$\mu_n=\frac{\kappa_0}{\kappa_0+n}\mu_0+\frac{n}{\kappa_0+n}\bar{x}$,
+$\kappa_n=\kappa_0+n$, $\nu_n=\nu_0+n$,
+$\Lambda_n=\Lambda_0+\sum_i ^{N} (x_i-\bar{x})(x_i-\bar{x})'+\frac{\kappa_0}{\kappa_0+n}(\bar{x}-\mu_0)(\bar{x}-\mu_0)'$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c}{\PYZsh{}function to calculate the marginal probability under the H1 hypothesis using Normal\PYZhy{}Inverse\PYZhy{}Wishart distribution}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{from} \PY{n+nn}{scipy.stats} \PY{k+kn}{import} \PY{n}{multivariate\PYZus{}normal}
+        \PY{k+kn}{import} \PY{n+nn}{scipy}
+        \PY{k+kn}{from} \PY{n+nn}{scipy.special} \PY{k+kn}{import} \PY{n}{gamma} 
+        \PY{k+kn}{import} \PY{n+nn}{random}
+        \PY{k+kn}{from} \PY{n+nn}{math} \PY{k+kn}{import} \PY{n}{sqrt}  
+        
+        \PY{k}{def} \PY{n+nf}{marginal\PYZus{}likelihood\PYZus{}NIW}\PY{p}{(}\PY{n}{points}\PY{p}{)}\PY{p}{:}
+            \PY{n}{n}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{)}
+            \PY{n}{p}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n}{mean\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{points}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+            \PY{n}{sum\PYZus{}squares} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}\PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{mean\PYZus{}data}\PY{p}{)}\PY{o}{.}\PY{n}{T} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}\PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{mean\PYZus{}data}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{points}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+            \PY{c}{\PYZsh{}parameters for the prior distribution}
+            \PY{n}{k0}\PY{o}{=}\PY{l+m+mf}{3.0}
+            \PY{n}{v0}\PY{o}{=}\PY{l+m+mi}{10}
+            \PY{n}{sigma0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{n}{p}\PY{p}{)}
+            \PY{n}{mu0}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{p}
+            \PY{c}{\PYZsh{}parameters for the posterior distribution}
+            \PY{n}{kn}\PY{o}{=}\PY{n}{k0}\PY{o}{+}\PY{n}{n}
+            \PY{n}{vn}\PY{o}{=}\PY{n}{v0}\PY{o}{+}\PY{n}{n}
+            \PY{n}{sigman}\PY{o}{=}\PY{n}{sigma0}\PY{o}{+}\PY{n}{sum\PYZus{}squares}\PY{o}{+}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{k0}\PY{o}{*}\PY{n}{n}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{k0}\PY{o}{+}\PY{n}{n}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{p}{(}\PY{n}{mean\PYZus{}data}\PY{o}{\PYZhy{}}\PY{n}{mu0}\PY{p}{)}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{p}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{mean\PYZus{}data}\PY{o}{\PYZhy{}}\PY{n}{mu0}\PY{p}{)}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{p}\PY{p}{)}\PY{p}{)}
+            \PY{n}{gammadn}\PY{o}{=}\PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{n}{y}\PY{p}{,} \PY{n+nb}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:}\PY{n}{gamma}\PY{p}{(}\PY{p}{(}\PY{n}{vn}\PY{o}{+}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{)}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{p}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{n}{gammad0}\PY{o}{=}\PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{n}{y}\PY{p}{,} \PY{n+nb}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:}\PY{n}{gamma}\PY{p}{(}\PY{p}{(}\PY{n}{v0}\PY{o}{+}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{)}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{p}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{c}{\PYZsh{}calculate the marginal probability}
+            \PY{n}{mar\PYZus{}like}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{p}\PY{o}{*}\PY{n}{n}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{det}\PY{p}{(}\PY{n}{sigma0}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{n}{v0}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{k0}\PY{o}{/}\PY{n}{kn}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{l+m+mf}{0.5}\PY{o}{*}\PY{n}{p}\PY{p}{)}\PY{o}{*}\PY{n}{gammadn}\PY{o}{/}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{gammad0}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{det}\PY{p}{(}\PY{n}{sigman}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{n}{vn}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{)}
+            
+            \PY{k}{return} \PY{n}{mar\PYZus{}like}
+\end{Verbatim}
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Dirichlet-Multinomial(multinomial data):
+  \[p\sim \frac{\Gamma(\sum \alpha_i)}{\prod_i^{k} \Gamma(\alpha_i)} \prod_i^{k}p_i^{\alpha_i-1}\]
+\end{itemize}
+
+The integral $p(D_k|H_1^k)= \int{p(D_k|\theta)p(\theta|\beta) d\theta}$
+is:
+
+\[p(D_k|H_1^k)=\prod_i [\frac{k!}{\prod_c x_i,c!} \frac{\Gamma(\alpha_0)}{\prod_c \Gamma(\alpha_c)} \frac{\prod_c \Gamma(\alpha_c+x_i,c)}{\Gamma(\alpha_0+k)}]\]
+
+where $\alpha_0=\sum \alpha_i$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c}{\PYZsh{}function to calculate the marginal probability under the H1 hypothesis using Dirichlet\PYZhy{}Multinomial distribution}
+        \PY{k}{def} \PY{n+nf}{marginal\PYZus{}likelihood\PYZus{}DW}\PY{p}{(}\PY{n}{points}\PY{p}{)}\PY{p}{:}
+            \PY{n}{p}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n}{n}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{)}
+            \PY{c}{\PYZsh{}parameters for the prior distribution}
+            \PY{n}{alpha}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{1.0}\PY{o}{/}\PY{n}{p}\PY{p}{]}\PY{o}{*}\PY{n}{p}
+            \PY{n}{alpha0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{alpha}\PY{p}{)}
+            
+            \PY{k}{def} \PY{n+nf}{temp}\PY{p}{(}\PY{n}{yi}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{sum}\PY{o}{=}\PY{l+m+mf}{1.0}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{p}\PY{p}{)}\PY{p}{:}
+                    \PY{n+nb}{sum}\PY{o}{=}\PY{n+nb}{sum}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb}{sum}
+            \PY{c}{\PYZsh{}calculate the marginal probability}
+            \PY{n}{mar\PYZus{}like}\PY{o}{=}\PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{n}{y}\PY{p}{,} \PY{n+nb}{map}\PY{p}{(}\PY{n}{temp}\PY{p}{,}\PY{n}{points}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{p}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{o}{+}\PY{n}{p}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{n}
+            
+            \PY{k}{return} \PY{n}{mar\PYZus{}like}
+\end{Verbatim}
+
+    \paragraph{2.3.4 Function for Bayesian Hierarchical
+Clustering}\label{function-for-bayesian-hierarchical-clustering}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c}{\PYZsh{}function used to store the clustering result}
+        \PY{k}{def} \PY{n+nf}{yezi}\PY{p}{(}\PY{n}{clust}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{clust}\PY{o}{.}\PY{n}{left} \PY{o}{==} \PY{n+nb+bp}{None} \PY{o+ow}{and} \PY{n}{clust}\PY{o}{.}\PY{n}{right} \PY{o}{==} \PY{n+nb+bp}{None} \PY{p}{:}
+                \PY{k}{return} \PY{p}{[}\PY{n}{clust}\PY{o}{.}\PY{n}{id}\PY{p}{]}
+            \PY{k}{return} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{left}\PY{p}{)} \PY{o}{+} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{right}\PY{p}{)}
+         
+            
+        \PY{c}{\PYZsh{}cluster function}
+        \PY{c}{\PYZsh{}parameter \PYZdq{}data\PYZdq{} is the data sset we want to cluster}
+        \PY{c}{\PYZsh{}parameter \PYZdq{}function\PYZdq{} is the function to calculate the marginal probability, which involves the choice of probablistic model and prior }
+        \PY{k}{def} \PY{n+nf}{bcluster}\PY{p}{(}\PY{n}{data}\PY{p}{,}\PY{n}{function}\PY{p}{)} \PY{p}{:}
+            \PY{n}{dim}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{c}{\PYZsh{}get the dimension of the data points}
+            \PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{3}
+            \PY{n}{biclusters} \PY{o}{=} \PY{p}{[} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point} \PY{o}{=} \PY{p}{[}\PY{n}{data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n+nb}{id} \PY{o}{=} \PY{n}{i} \PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{l+m+mf}{0.0000001}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n}{alpha}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{c}{\PYZsh{}initialize: each point is a cluster}
+            \PY{n}{flag} \PY{o}{=} \PY{n+nb+bp}{None}\PY{p}{;}\PY{c}{\PYZsh{}record the id of the pair of clusters when merging}
+            \PY{n}{currentclusted} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{c}{\PYZsh{}id for the new cluster}
+            
+            \PY{c}{\PYZsh{}when there is only one data point in the data set}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+            
+            \PY{c}{\PYZsh{}when there are more than one data points in the data set}
+            \PY{k}{while}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:} 
+                \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;} \PY{c}{\PYZsh{}initializa the maximum r\PYZus{}k}
+                \PY{n}{biclusters\PYZus{}len} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{c}{\PYZsh{}number of the current clusters}
+                
+                \PY{c}{\PYZsh{}find the pair of clusters that has the largest probability of merged hypothesis}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{biclusters\PYZus{}len}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:}
+                    \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{biclusters\PYZus{}len}\PY{p}{)} \PY{p}{:}
+                        
+                        \PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{o}{=} \PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{o}{+} \PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{point}\PY{c}{\PYZsh{}combine the two clusters into one cluster}
+                        \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{function}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{c}{\PYZsh{}calculate the  probability that the points of the two clusters under H\PYZus{}1 hypothesis }
+                        \PY{c}{\PYZsh{}update the prior that all data points belong to one cluster}
+                        \PY{n}{pi}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{/}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{p}{)}
+                        \PY{n}{marginal\PYZus{}prob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{c}{\PYZsh{}calculate the marginal probabilty of data in tree T\PYZus{}k}
+                        \PY{n}{r} \PY{o}{=} \PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{/}\PY{n}{marginal\PYZus{}prob}\PY{c}{\PYZsh{}calculate the posterior probability of merged hypothesis using bayes rule}
+                        \PY{k}{if} \PY{n}{r} \PY{o}{\PYZgt{}} \PY{n}{max\PYZus{}prob} \PY{p}{:}
+                            \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{n}{r}
+                            \PY{n}{flag} \PY{o}{=} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)}
+                            
+                \PY{c}{\PYZsh{}when to stop clustering     }
+                \PY{k}{if} \PY{n}{max\PYZus{}prob}\PY{o}{\PYZlt{}}\PY{l+m+mf}{0.5}\PY{p}{:} 
+                    \PY{k}{break}
+                    
+                \PY{n}{bic1}\PY{p}{,}\PY{n}{bic2} \PY{o}{=} \PY{n}{flag} \PY{c}{\PYZsh{}update the flag}
+                
+                \PY{n}{newpoint} \PY{o}{=} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{o}{+} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{c}{\PYZsh{}combine the points of two clusters into the new cluster}
+                \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{function}\PY{p}{(}\PY{n}{newpoint}\PY{p}{)}
+                \PY{c}{\PYZsh{}calculate the corresponding marginal probability for the new cluster}
+                \PY{n}{newprob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{probability}
+                \PY{n}{newd}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{newpoint}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{d}
+                \PY{c}{\PYZsh{}construct the new culster using the information above}
+                \PY{n}{newbic} \PY{o}{=} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point}\PY{o}{=}\PY{n}{newpoint}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{p}{,} \PY{n}{probability}\PY{o}{=}\PY{n}{newprob}\PY{p}{,} \PY{n}{d}\PY{o}{=}\PY{n}{newd}\PY{p}{,}  \PY{n+nb}{id} \PY{o}{=} \PY{n}{currentclusted}\PY{p}{)} 
+                
+                \PY{n}{currentclusted} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}\PY{c}{\PYZsh{}update the id for the next cluster}
+                \PY{c}{\PYZsh{}delete the two old clusters}
+                \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]} 
+                \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}
+                
+                \PY{c}{\PYZsh{}add the new cluster into the biclusters}
+                \PY{n}{biclusters}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{newbic}\PY{p}{)}
+                \PY{c}{\PYZsh{}record the clustering result}
+                \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                
+            \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+\end{Verbatim}
+
+    \begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+3. Testing
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+In the unit test, I mainly test four things:
+
+\begin{itemize}
+\item
+  whether the number of clusters is larger than or equal to 1;
+\item
+  whether the number of clusters is smaller than or equal to the number
+  of data points;
+\item
+  whether the algorithm can produce one cluster when all data points are
+  exactly the same;
+\item
+  whether the algorithm can produce one cluster when there is only one
+  data point.
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{o}{!} py.test
+\end{Verbatim}
+
+    \begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+4. Optimization
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+    In this part, I would focus on the efficiency of the code(accuracy will
+be discussed later).
+
+In order to test the efficiency, I generate a sample data set(which is
+drawn from multinomial distribution):
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{sample}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}
+               \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+               \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    First, measure the time of function \textbf{bcluser} using the sample
+data set:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{o}{\PYZpc{}}\PY{k}{timeit} \PY{o}{\PYZhy{}}\PY{n}{n} \PY{l+m+mi}{100} \PY{n}{k}\PY{p}{,}\PY{n}{l}\PY{o}{=}\PY{n}{bcluster}\PY{p}{(}\PY{n}{sample}\PY{p}{,}\PY{n}{marginal\PYZus{}likelihood\PYZus{}DW}\PY{p}{)} 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+100 loops, best of 3: 23.1 ms per loop
+    \end{Verbatim}
+
+    To improve efficiency, I try two method: \textbf{numba} and
+\textbf{cython}.
+
+    \subsubsection{4.1 Numba}\label{numba}
+
+Numba gives the power to speed up your applications with high
+performance functions written directly in Python with just a few
+annotations. The numba version of the function is shown below:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{k+kn}{from} \PY{n+nn}{numba} \PY{k+kn}{import} \PY{n}{jit}\PY{p}{,} \PY{n}{int32}\PY{p}{,} \PY{n}{int64}\PY{p}{,} \PY{n}{float32}\PY{p}{,} \PY{n}{float64} 
+        \PY{k+kn}{import} \PY{n+nn}{scipy.misc}
+        \PY{k+kn}{from} \PY{n+nn}{numbapro} \PY{k+kn}{import} \PY{n}{vectorize}
+        
+        \PY{n+nd}{@jit}
+        
+        \PY{k}{def} \PY{n+nf}{yezi}\PY{p}{(}\PY{n}{clust}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{clust}\PY{o}{.}\PY{n}{left} \PY{o}{==} \PY{n+nb+bp}{None} \PY{o+ow}{and} \PY{n}{clust}\PY{o}{.}\PY{n}{right} \PY{o}{==} \PY{n+nb+bp}{None} \PY{p}{:}
+                \PY{k}{return} \PY{p}{[}\PY{n}{clust}\PY{o}{.}\PY{n}{id}\PY{p}{]}
+            \PY{k}{return} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{left}\PY{p}{)} \PY{o}{+} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{right}\PY{p}{)}
+        
+        \PY{k}{class} \PY{n+nc}{bicluster}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{point}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n+nb}{id}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{left} \PY{o}{=} \PY{n}{left}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{right} \PY{o}{=} \PY{n}{right}  
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{point} \PY{o}{=} \PY{n}{point}   
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{id} \PY{o}{=} \PY{n+nb}{id}     
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{probability} \PY{o}{=} \PY{n}{probability}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{d}\PY{o}{=}\PY{n}{d}
+        
+        \PY{k}{def} \PY{n+nf}{marginal\PYZus{}likelihood\PYZus{}DW}\PY{p}{(}\PY{n}{points}\PY{p}{)}\PY{p}{:}
+            \PY{n}{p}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n}{n}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{)}
+            \PY{c}{\PYZsh{}parameters for the prior distribution}
+            \PY{n}{alpha}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{1.0}\PY{o}{/}\PY{n}{p}\PY{p}{]}\PY{o}{*}\PY{n}{p}
+            \PY{n}{alpha0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{alpha}\PY{p}{)}
+            
+            \PY{k}{def} \PY{n+nf}{temp}\PY{p}{(}\PY{n}{yi}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{sum}\PY{o}{=}\PY{l+m+mf}{1.0}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{p}\PY{p}{)}\PY{p}{:}
+                    \PY{n+nb}{sum}\PY{o}{=}\PY{n+nb}{sum}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb}{sum}
+            \PY{c}{\PYZsh{}calculate the marginal probability}
+            \PY{n}{mar\PYZus{}like}\PY{o}{=}\PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{n}{y}\PY{p}{,} \PY{n+nb}{map}\PY{p}{(}\PY{n}{temp}\PY{p}{,}\PY{n}{points}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{p}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{o}{+}\PY{n}{p}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{n}
+            
+            \PY{k}{return} \PY{n}{mar\PYZus{}like}
+        
+        \PY{k}{def} \PY{n+nf}{bcluster\PYZus{}numba}\PY{p}{(}\PY{n}{data}\PY{p}{,}\PY{n}{function}\PY{p}{)} \PY{p}{:}
+            \PY{n}{dim}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{c}{\PYZsh{}get the dimension of the data points}
+            \PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{3}
+            \PY{n}{biclusters} \PY{o}{=} \PY{p}{[} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point} \PY{o}{=} \PY{p}{[}\PY{n}{data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n+nb}{id} \PY{o}{=} \PY{n}{i} \PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{l+m+mf}{0.0000001}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n}{alpha}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{c}{\PYZsh{}initialize: each point is a cluster}
+            \PY{n}{flag} \PY{o}{=} \PY{n+nb+bp}{None}\PY{p}{;}\PY{c}{\PYZsh{}record the id of the pair of clusters when merging}
+            \PY{n}{currentclusted} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{c}{\PYZsh{}id for the new cluster}
+            
+            \PY{c}{\PYZsh{}when there is only one data point in the data set}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+            
+            \PY{c}{\PYZsh{}when there are more than one data points in the data set}
+            \PY{k}{while}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:} 
+                \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;} \PY{c}{\PYZsh{}initializa the maximum r\PYZus{}k}
+                \PY{n}{biclusters\PYZus{}len} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{c}{\PYZsh{}number of the current clusters}
+                
+                \PY{c}{\PYZsh{}find the pair of clusters that has the largest probability of merged hypothesis}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{biclusters\PYZus{}len}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:}
+                    \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{biclusters\PYZus{}len}\PY{p}{)} \PY{p}{:}
+                        
+                        \PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{o}{=} \PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{o}{+} \PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{point}\PY{c}{\PYZsh{}combine the two clusters into one cluster}
+                        \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{function}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{c}{\PYZsh{}calculate the  probability that the points of the two clusters under H\PYZus{}1 hypothesis }
+                        \PY{c}{\PYZsh{}update the prior that all data points belong to one cluster}
+                        \PY{n}{pi}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{/}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temp\PYZus{}cluster\PYZus{}points}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{p}{)}
+                        \PY{n}{marginal\PYZus{}prob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{c}{\PYZsh{}calculate the marginal probabilty of data in tree T\PYZus{}k}
+                        \PY{n}{r} \PY{o}{=} \PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{/}\PY{n}{marginal\PYZus{}prob}\PY{c}{\PYZsh{}calculate the posterior probability of merged hypothesis using bayes rule}
+                        \PY{k}{if} \PY{n}{r} \PY{o}{\PYZgt{}} \PY{n}{max\PYZus{}prob} \PY{p}{:}
+                            \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{n}{r}
+                            \PY{n}{flag} \PY{o}{=} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)}
+                            
+                \PY{c}{\PYZsh{}when to stop clustering     }
+                \PY{k}{if} \PY{n}{max\PYZus{}prob}\PY{o}{\PYZlt{}}\PY{l+m+mf}{0.5}\PY{p}{:} 
+                    \PY{k}{break}
+                    
+                \PY{n}{bic1}\PY{p}{,}\PY{n}{bic2} \PY{o}{=} \PY{n}{flag} \PY{c}{\PYZsh{}update the flag}
+                
+                \PY{n}{newpoint} \PY{o}{=} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{o}{+} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{c}{\PYZsh{}combine the points of two clusters into the new cluster}
+                \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{function}\PY{p}{(}\PY{n}{newpoint}\PY{p}{)}
+                \PY{c}{\PYZsh{}calculate the corresponding marginal probability for the new cluster}
+                \PY{n}{newprob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{probability}
+                \PY{n}{newd}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{newpoint}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{d}
+                \PY{c}{\PYZsh{}construct the new culster using the information above}
+                \PY{n}{newbic} \PY{o}{=} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point}\PY{o}{=}\PY{n}{newpoint}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{p}{,} \PY{n}{probability}\PY{o}{=}\PY{n}{newprob}\PY{p}{,} \PY{n}{d}\PY{o}{=}\PY{n}{newd}\PY{p}{,}  \PY{n+nb}{id} \PY{o}{=} \PY{n}{currentclusted}\PY{p}{)} 
+                
+                \PY{n}{currentclusted} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}\PY{c}{\PYZsh{}update the id for the next cluster}
+                \PY{c}{\PYZsh{}delete the two old clusters}
+                \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]} 
+                \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}
+                
+                \PY{c}{\PYZsh{}add the new cluster into the biclusters}
+                \PY{n}{biclusters}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{newbic}\PY{p}{)}
+                \PY{c}{\PYZsh{}record the clustering result}
+                \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                
+            \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{o}{\PYZpc{}}\PY{k}{timeit} \PY{o}{\PYZhy{}}\PY{n}{n} \PY{l+m+mi}{100} \PY{n}{k}\PY{p}{,}\PY{n}{l}\PY{o}{=}\PY{n}{bcluster\PYZus{}numba}\PY{p}{(}\PY{n}{sample}\PY{p}{,}\PY{n}{marginal\PYZus{}likelihood\PYZus{}DW}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+100 loops, best of 3: 25.1 ms per loop
+    \end{Verbatim}
+
+    The performance of numba version doesn't greatly reduce the time.
+
+    \subsubsection{4.2 Cython}\label{cython}
+
+The Cython language is a superset of the Python language that
+additionally supports calling C functions and declaring C types on
+variables and class attributes. This allows the compiler to generate
+very efficient C code from Cython code.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{o}{\PYZpc{}}\PY{k}{load\PYZus{}ext} \PY{n}{cythonmagic}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{cython}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+         \PY{n}{cimport} \PY{n}{cython}
+         \PY{n}{cimport} \PY{n}{numpy} \PY{k}{as} \PY{n}{np}
+         \PY{k+kn}{from} \PY{n+nn}{scipy.special} \PY{k+kn}{import} \PY{n}{gamma} 
+         \PY{k+kn}{import} \PY{n+nn}{scipy}
+         \PY{k+kn}{import} \PY{n+nn}{scipy.misc}
+         
+         \PY{n+nd}{@cython.boundscheck}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
+         \PY{n+nd}{@cython.wraparound}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
+         \PY{n+nd}{@cython.profile}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
+         
+         \PY{n}{cdef} \PY{n}{marginal\PYZus{}likelihood\PYZus{}DW\PYZus{}cython}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n+nb}{long}\PY{p}{,}\PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{]} \PY{n}{points}\PY{p}{)}\PY{p}{:}
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{p}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{n}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{points}\PY{p}{)}
+             \PY{n}{cdef} \PY{n}{np}\PY{o}{.}\PY{n}{ndarray} \PY{n}{alpha}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{repeat}\PY{p}{(}\PY{l+m+mf}{1.0}\PY{o}{/}\PY{n}{p}\PY{p}{,}\PY{n}{p}\PY{p}{)}
+             \PY{n}{cdef} \PY{n}{double} \PY{n}{alpha0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{alpha}\PY{p}{)}
+             \PY{n}{cdef} \PY{n}{double}  \PY{n}{mar\PYZus{}like}
+             
+             \PY{k}{def} \PY{n+nf}{temp}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n+nb}{long}\PY{p}{,}\PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{]} \PY{n}{yi}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{i}
+                 \PY{n}{cdef} \PY{n}{double} \PY{n+nb}{sum}\PY{o}{=}\PY{l+m+mf}{1.0}
+                 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{p}\PY{p}{)}\PY{p}{:}
+                     \PY{n+nb}{sum}\PY{o}{=}\PY{n+nb}{sum}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{yi}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                 \PY{k}{return} \PY{n+nb}{sum}
+             
+             \PY{n}{mar\PYZus{}like}\PY{o}{=}\PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{n}{y}\PY{p}{,} \PY{n+nb}{map}\PY{p}{(}\PY{n}{temp}\PY{p}{,}\PY{n}{points}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{p}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{gamma}\PY{p}{(}\PY{n}{alpha0}\PY{o}{+}\PY{n}{p}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{n}
+             
+             \PY{k}{return} \PY{n}{mar\PYZus{}like}
+         
+         \PY{k}{class} \PY{n+nc}{bicluster}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{point}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n+nb}{id}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{)}\PY{p}{:}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{left} \PY{o}{=} \PY{n}{left}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{right} \PY{o}{=} \PY{n}{right}  
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{point} \PY{o}{=} \PY{n}{point}   
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{id} \PY{o}{=} \PY{n+nb}{id}     
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{probability} \PY{o}{=} \PY{n}{probability}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{d}\PY{o}{=}\PY{n}{d}
+             
+         \PY{k}{def} \PY{n+nf}{yezi}\PY{p}{(}\PY{n}{clust}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{clust}\PY{o}{.}\PY{n}{left} \PY{o}{==} \PY{n+nb+bp}{None} \PY{o+ow}{and} \PY{n}{clust}\PY{o}{.}\PY{n}{right} \PY{o}{==} \PY{n+nb+bp}{None} \PY{p}{:}
+                 \PY{k}{return} \PY{p}{[}\PY{n}{clust}\PY{o}{.}\PY{n}{id}\PY{p}{]}
+             \PY{k}{return} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{left}\PY{p}{)} \PY{o}{+} \PY{n}{yezi}\PY{p}{(}\PY{n}{clust}\PY{o}{.}\PY{n}{right}\PY{p}{)}
+         
+         
+         
+         \PY{k}{def} \PY{n+nf}{bcluster\PYZus{}cython}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n+nb}{long}\PY{p}{,}\PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{]} \PY{n}{data}\PY{p}{)} \PY{p}{:}
+            
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{dim}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{3}
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{currentclusted} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1} 
+             \PY{n}{cdef} \PY{n}{double} \PY{n}{P\PYZus{}H1}\PY{p}{,} \PY{n}{r}\PY{p}{,} \PY{n}{marginal\PYZus{}prob}\PY{p}{,} \PY{n}{pi}\PY{p}{,} \PY{n}{max\PYZus{}prob}\PY{p}{,} \PY{n}{newprob}\PY{p}{,} \PY{n}{newd}
+             \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{bic1}\PY{p}{,} \PY{n}{bic2}\PY{p}{,} \PY{n}{biclusters\PYZus{}len}
+             \PY{n}{cdef} \PY{n+nb}{tuple} \PY{n}{flag} \PY{o}{=} \PY{n+nb+bp}{None}
+             \PY{n}{cdef} \PY{n}{np}\PY{o}{.}\PY{n}{ndarray} \PY{n}{temppoints}\PY{p}{,} \PY{n}{newpoints}
+             
+             \PY{n}{biclusters} \PY{o}{=} \PY{p}{[} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n+nb}{id} \PY{o}{=} \PY{n}{i} \PY{p}{,}\PY{n}{probability}\PY{o}{=}\PY{l+m+mf}{0.001}\PY{p}{,}\PY{n}{d}\PY{o}{=}\PY{n}{alpha}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{c}{\PYZsh{}initialize: each point is a cluster}
+             
+             \PY{k}{while}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:} 
+                 \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;} 
+                 \PY{n}{biclusters\PYZus{}len} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}
+                 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{biclusters\PYZus{}len}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:}
+                     \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{biclusters\PYZus{}len}\PY{p}{)} \PY{p}{:}
+                         
+                         \PY{c}{\PYZsh{}calculate P\PYZus{}H1: MC method}
+                         \PY{n}{temppoints}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{p}{,} \PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{point}\PY{p}{)}\PY{p}{)}
+                         
+                         \PY{c}{\PYZsh{}P\PYZus{}H1=marginal\PYZus{}likelihood\PYZus{}NIW(temp\PYZus{}cluster\PYZus{}points)}
+                         \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{marginal\PYZus{}likelihood\PYZus{}DW\PYZus{}cython}\PY{p}{(}\PY{n}{temppoints}\PY{p}{)}
+                         \PY{n}{pi}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temppoints}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{/}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temppoints}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{p}{)}
+                         \PY{n}{marginal\PYZus{}prob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{probability}
+                         \PY{n}{r} \PY{o}{=} \PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{/}\PY{n}{marginal\PYZus{}prob}
+                         \PY{k}{if} \PY{n}{r} \PY{o}{\PYZgt{}} \PY{n}{max\PYZus{}prob} \PY{p}{:}
+                             \PY{n}{max\PYZus{}prob} \PY{o}{=} \PY{n}{r}
+                             \PY{n}{flag} \PY{o}{=} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)}
+                 
+                 \PY{k}{if} \PY{n}{max\PYZus{}prob}\PY{o}{\PYZlt{}}\PY{l+m+mf}{0.5}\PY{p}{:} 
+                     \PY{k}{break}
+                     
+                 \PY{n}{bic1}\PY{p}{,}\PY{n}{bic2} \PY{o}{=} \PY{n}{flag} 
+                 
+                 \PY{n}{newpoints} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{point} \PY{p}{,} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{point}\PY{p}{)}\PY{p}{)} \PY{c}{\PYZsh{}combine the points of two clusters into the new cluster}
+                 
+                 \PY{c}{\PYZsh{}P\PYZus{}H1=marginal\PYZus{}likelihood\PYZus{}NIW(newpoint)}
+                 \PY{n}{P\PYZus{}H1}\PY{o}{=}\PY{n}{marginal\PYZus{}likelihood\PYZus{}DW\PYZus{}cython}\PY{p}{(}\PY{n}{newpoints}\PY{p}{)}
+                 
+                 \PY{n}{newprob}\PY{o}{=}\PY{n}{pi}\PY{o}{*}\PY{n}{P\PYZus{}H1}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{probability}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{probability}
+                 \PY{n}{newd}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{scipy}\PY{o}{.}\PY{n}{misc}\PY{o}{.}\PY{n}{factorial}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{newpoints}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{alpha}\PY{o}{+}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{d}\PY{o}{*}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{d}
+                 \PY{n}{newbic} \PY{o}{=} \PY{n}{bicluster}\PY{p}{(}\PY{n}{point}\PY{o}{=}\PY{n}{newpoints}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{p}{,} \PY{n}{probability}\PY{o}{=}\PY{n}{newprob}\PY{p}{,} \PY{n}{d}\PY{o}{=}\PY{n}{newd}\PY{p}{,}  \PY{n+nb}{id} \PY{o}{=} \PY{n}{currentclusted}\PY{p}{)} 
+                 \PY{n}{currentclusted} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                 
+                 \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]} 
+                 \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}
+                 \PY{n}{biclusters}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{newbic}\PY{p}{)}
+                 \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                 
+             \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{o}{\PYZpc{}}\PY{k}{timeit} \PY{o}{\PYZhy{}}\PY{n}{n} \PY{l+m+mi}{100} \PY{n}{k}\PY{p}{,}\PY{n}{l}\PY{o}{=}\PY{n}{bcluster\PYZus{}cython}\PY{p}{(}\PY{n}{sample}\PY{p}{)} 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+100 loops, best of 3: 22.6 ms per loop
+    \end{Verbatim}
+
+    The performance of cython version is not desirable; it doesn't greatly
+reduce the time. It may be due to the class bicluster. I couldn't find a
+way to transform the class bicluster into C type, which might be the
+main reason.
+
+    \begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+5. Application and Comparison
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\subsubsection{5.1 Application to Simulated Data
+Set}\label{application-to-simulated-data-set}
+
+I simulate two data sets:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Normal}: I simulate three data points from $N_2((0,0)',0.5I)$,
+  4 data points from $N_2((2,2)',0.5I)$, and 3 data points from
+  $N_2((8,8)',0.5I)$. Then combine them into one data set called
+  sample\_NIW. This data set is supposed to be clustered into 3
+  clusters.
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c}{\PYZsh{}sample multinormal data}
+         \PY{n}{mean2}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n}{cov2}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}
+         \PY{n}{data2}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{multivariate\PYZus{}normal}\PY{p}{(}\PY{n}{mean2}\PY{p}{,}\PY{n}{cov2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
+         \PY{n}{mean3}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{cov3}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+         \PY{n}{data3}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{multivariate\PYZus{}normal}\PY{p}{(}\PY{n}{mean3}\PY{p}{,}\PY{n}{cov3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+         \PY{n}{mean4}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}
+         \PY{n}{cov4}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{)}
+         \PY{n}{data4}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{multivariate\PYZus{}normal}\PY{p}{(}\PY{n}{mean4}\PY{p}{,}\PY{n}{cov4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
+         \PY{n}{sample\PYZus{}NIW}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{concatenate}\PY{p}{(}\PY{p}{(}\PY{n}{data3}\PY{p}{,} \PY{n}{data4}\PY{p}{,}\PY{n}{data2}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Multinomial}: Data set sample\_DW contains 3 identical data
+  points {[}3, 3, 3, 3, 3, 3{]}, and other 3 identical data points {[}9,
+  9, 0, 0, 0, 0{]}. This data set is supposed to be clustered into 2
+  clusters.
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{c}{\PYZsh{}sample multinomial data}
+         
+         \PY{n}{d1}\PY{o}{=}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}
+         \PY{n}{d2}\PY{o}{=}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}
+         \PY{n}{sample\PYZus{}DW}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{concatenate}\PY{p}{(}\PY{p}{(}\PY{n}{d1}\PY{p}{,} \PY{n}{d2}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+    \subsubsection{5.2 Comparison}\label{comparison}
+
+\paragraph{5.2.1 Bayesian Hierarchical
+Clustering}\label{bayesian-hierarchical-clustering}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{c}{\PYZsh{}Clustering result using normal data set:}
+         \PY{n}{k1}\PY{p}{,}\PY{n}{l1}\PY{o}{=}\PY{n}{bcluster}\PY{p}{(}\PY{n}{sample\PYZus{}NIW}\PY{p}{,}\PY{n}{marginal\PYZus{}likelihood\PYZus{}NIW}\PY{p}{)} 
+         \PY{n}{l1}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}16}]:} [[7, 8], [6, 4, 5, 0, 1, 2, 3, 9]]
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{c}{\PYZsh{}Clustering result using multinomial data set:}
+         \PY{n}{k2}\PY{p}{,}\PY{n}{l2}\PY{o}{=}\PY{n}{bcluster}\PY{p}{(}\PY{n}{sample\PYZus{}DW}\PY{p}{,}\PY{n}{marginal\PYZus{}likelihood\PYZus{}DW}\PY{p}{)} 
+         \PY{n}{l2}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:} [[1], [2], [0, 5, 3, 4]]
+\end{Verbatim}
+        
+    For the normal data set sample\_DW, function bcluster divides the data
+points into 2 clusters, and for the multinomial data set sample\_DW, it
+divides the data points into three clusters. Though bayesian
+hierarchical clustering indeed correctly clusters part of the points,
+the overall performances are not good.
+
+The main reason for the undesirable performance comes from the choice of
+probability distribution and its prior(including parameters). In the
+above two clustering processes, even though I use the correct
+probability distributions(multinomial and normal), it is hard to decide
+whether the priors are correct. In this case, I use conjugate priors for
+the sake of simplicity, but conjugate priors may not be the best one.
+What's more, the values of the parameters in the prior distributions are
+difficult to choose without additional information.
+
+More importantly, in some situations we don't know how the data is
+generated, so the choice of probability distribution is also a
+considerable problem.
+
+    \paragraph{5.2.2 Traditional Hierarchical
+Clustering}\label{traditional-hierarchical-clustering}
+
+I first compare the result with traditional hierarchical clustering
+based on Euclidean distance.(The function using traditional hierarchical
+clustering is shown below)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{c}{\PYZsh{}define class tbicluster}
+         \PY{k}{class} \PY{n+nc}{tbicluster}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{vec}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}\PY{n}{distance}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,}\PY{n+nb}{id}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{)}\PY{p}{:}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{left} \PY{o}{=} \PY{n}{left}
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{right} \PY{o}{=} \PY{n}{right}  
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{vec} \PY{o}{=} \PY{n}{vec}     
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{id} \PY{o}{=} \PY{n+nb}{id}     
+                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{distance} \PY{o}{=} \PY{n}{distance}
+                 
+         \PY{c}{\PYZsh{}culstering function            }
+         \PY{k}{def} \PY{n+nf}{hcluster}\PY{p}{(}\PY{n}{data}\PY{p}{,}\PY{n}{n}\PY{p}{)} \PY{p}{:}
+             
+             \PY{k}{def} \PY{n+nf}{Euclidean\PYZus{}distance}\PY{p}{(}\PY{n}{vector1}\PY{p}{,}\PY{n}{vector2}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{length} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{vector1}\PY{p}{)}
+                 \PY{n}{TSum} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{p}{[}\PY{n+nb}{pow}\PY{p}{(}\PY{p}{(}\PY{n}{vector1}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{vector2}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{vector1}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{SSum} \PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{n}{TSum}\PY{p}{)}  
+                 \PY{k}{return} \PY{n}{SSum}
+             
+             \PY{n}{biclusters} \PY{o}{=} \PY{p}{[} \PY{n}{tbicluster}\PY{p}{(}\PY{n}{vec} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n+nb}{id} \PY{o}{=} \PY{n}{i} \PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)} \PY{p}{]}
+             \PY{n}{distances} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{n}{flag} \PY{o}{=} \PY{n+nb+bp}{None}\PY{p}{;}
+             \PY{n}{currentclusted} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}
+             \PY{k}{while}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{n}{n}\PY{p}{)} \PY{p}{:} 
+                 \PY{n}{min\PYZus{}val} \PY{o}{=} \PY{l+m+mi}{999999999999}\PY{p}{;} 
+                 \PY{n}{biclusters\PYZus{}len} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}
+                 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{biclusters\PYZus{}len}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{:}
+                     \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{biclusters\PYZus{}len}\PY{p}{)} \PY{p}{:}
+                         \PY{k}{if} \PY{n}{distances}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{,}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{n+nb+bp}{None}\PY{p}{:}
+                             \PY{n}{distances}\PY{p}{[}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{,}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{Euclidean\PYZus{}distance}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{vec}\PY{p}{,}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{vec}\PY{p}{)}
+                         \PY{n}{d} \PY{o}{=} \PY{n}{distances}\PY{p}{[}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{,}\PY{n}{biclusters}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{id}\PY{p}{)}\PY{p}{]} 
+                         \PY{k}{if} \PY{n}{d} \PY{o}{\PYZlt{}} \PY{n}{min\PYZus{}val} \PY{p}{:}
+                             \PY{n}{min\PYZus{}val} \PY{o}{=} \PY{n}{d}
+                             \PY{n}{flag} \PY{o}{=} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)}
+                 \PY{n}{bic1}\PY{p}{,}\PY{n}{bic2} \PY{o}{=} \PY{n}{flag} 
+                 \PY{n}{newvec} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{vec}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{o}{.}\PY{n}{vec}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{o}{.}\PY{n}{vec}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+                 \PY{n}{newbic} \PY{o}{=} \PY{n}{tbicluster}\PY{p}{(}\PY{n}{newvec}\PY{p}{,} \PY{n}{left}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]}\PY{p}{,} \PY{n}{distance}\PY{o}{=}\PY{n}{min\PYZus{}val}\PY{p}{,} \PY{n+nb}{id} \PY{o}{=} \PY{n}{currentclusted}\PY{p}{)} 
+                 \PY{n}{currentclusted} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic2}\PY{p}{]} 
+                 \PY{k}{del} \PY{n}{biclusters}\PY{p}{[}\PY{n}{bic1}\PY{p}{]}
+                 \PY{n}{biclusters}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{newbic}\PY{p}{)}
+                 \PY{n}{clusters} \PY{o}{=} \PY{p}{[}\PY{n}{yezi}\PY{p}{(}\PY{n}{biclusters}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{biclusters}\PY{p}{)}\PY{p}{)}\PY{p}{]} 
+             \PY{k}{return} \PY{n}{biclusters}\PY{p}{,}\PY{n}{clusters}
+\end{Verbatim}
+
+    The result for the two data sets are shown below(given the correct
+number of clusters):
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c}{\PYZsh{}Culstering result using normal data set:}
+         \PY{n}{tk1}\PY{p}{,}\PY{n}{tl1}\PY{o}{=}\PY{n}{hcluster}\PY{p}{(}\PY{n}{sample\PYZus{}NIW}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)} 
+         \PY{n}{tl1}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}19}]:} [[9, 7, 8], [1, 2, 0, 3], [6, 4, 5]]
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c}{\PYZsh{}Clustering result using multinomial data set:}
+         \PY{n}{tk2}\PY{p}{,}\PY{n}{tl2}\PY{o}{=}\PY{n}{hcluster}\PY{p}{(}\PY{n}{sample\PYZus{}DW}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)} 
+         \PY{n}{tl2}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}20}]:} [[2, 0, 1], [5, 3, 4]]
+\end{Verbatim}
+        
+    For both the normal data set sample\_NIW and the multinomial data set
+sample\_DW, traditional hierarchical clustering correctly clusters them
+into 3 and 2 groups with the right components.
+
+Although this alhorithm works fine in this case, it still have some
+concerns. The algorithm provides no guide to choosing the ``correct''
+number of clusters or the level at which to prune the tree. It is often
+difﬁcult to know which distance metric to choose, especially for
+structured data such as images or sequences. The traditional algorithm
+does not deﬁne a probabilistic model of the data, so it is hard to ask
+how ``good'' a clustering is, to compare to other models, to make
+predictions and cluster new data into an existing hierarchy.
+
+    \paragraph{5.2.3 K-means Clustering}\label{k-means-clustering}
+
+Next, I use K-Means algorithm to cluster the two data sets. The K-Means
+algorithm clusters data by trying to separate samples in n groups of
+equal variance, minimizing a criterion known as the \textbf{inertia} or
+within-cluster sum-of-squares. This algorithm requires the number of
+clusters to be specified.
+
+K-means is often referred to as Lloyd's algorithm. In basic terms, the
+algorithm has three steps. The first step chooses the initial centroids,
+with the most basic method being to choose k samples from the dataset X.
+After initialization, K-means consists of looping between the two other
+steps. The first step assigns each sample to its nearest centroid. The
+second step creates new centroids by taking the mean value of all of the
+samples assigned to each previous centroid. The difference between the
+old and the new centroids are computed and the algorithm repeats these
+last two steps until this value is less than a threshold. In other
+words, it repeats until the centroids do not move significantly.
+
+The function is shown below:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c}{\PYZsh{}kmeans}
+         \PY{k+kn}{import} \PY{n+nn}{random}
+         
+         \PY{k}{def} \PY{n+nf}{kmeanscluster}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{K}\PY{p}{)}\PY{p}{:}
+             
+             \PY{k}{def} \PY{n+nf}{cluster\PYZus{}points}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{mu}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{clusters}  \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+                 \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{X}\PY{p}{:}
+                     \PY{n}{bestmukey} \PY{o}{=} \PY{n+nb}{min}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{x}\PY{o}{\PYZhy{}}\PY{n}{mu}\PY{p}{[}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}  \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{mu}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{k}{lambda} \PY{n}{t}\PY{p}{:}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{k}{try}\PY{p}{:}
+                         \PY{n}{clusters}\PY{p}{[}\PY{n}{bestmukey}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+                     \PY{k}{except} \PY{n+ne}{KeyError}\PY{p}{:}
+                         \PY{n}{clusters}\PY{p}{[}\PY{n}{bestmukey}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{x}\PY{p}{]}
+                 \PY{k}{return} \PY{n}{clusters}
+         
+             \PY{k}{def} \PY{n+nf}{reevaluate}\PY{p}{(}\PY{n}{mu}\PY{p}{,} \PY{n}{clusters}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{newmu} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                 \PY{n}{keys} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{n}{clusters}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                 \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n}{keys}\PY{p}{:}
+                     \PY{n}{newmu}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{clusters}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{p}{,} \PY{n}{axis} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{newmu}
+          
+             \PY{k}{def} \PY{n+nf}{ifconverged}\PY{p}{(}\PY{n}{mu}\PY{p}{,} \PY{n}{oldmu}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{return} \PY{n+nb}{set}\PY{p}{(}\PY{p}{[}\PY{n+nb}{tuple}\PY{p}{(}\PY{n}{a}\PY{p}{)} \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{mu}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{n+nb}{set}\PY{p}{(}\PY{p}{[}\PY{n+nb}{tuple}\PY{p}{(}\PY{n}{a}\PY{p}{)} \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{oldmu}\PY{p}{]}\PY{p}{)}
+         
+             \PY{c}{\PYZsh{} Initialize to K random centers}
+             \PY{n}{oldmu} \PY{o}{=} \PY{n}{random}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{K}\PY{p}{)}
+             \PY{n}{mu} \PY{o}{=} \PY{n}{random}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{K}\PY{p}{)}
+             \PY{k}{while} \PY{o+ow}{not} \PY{n}{ifconverged}\PY{p}{(}\PY{n}{mu}\PY{p}{,} \PY{n}{oldmu}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{oldmu} \PY{o}{=} \PY{n}{mu}
+                 \PY{c}{\PYZsh{} Assign all points in X to clusters}
+                 \PY{n}{kclusters} \PY{o}{=} \PY{n}{cluster\PYZus{}points}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{mu}\PY{p}{)}
+                 \PY{c}{\PYZsh{} Reevaluate centers}
+                 \PY{n}{mu} \PY{o}{=} \PY{n}{reevaluate}\PY{p}{(}\PY{n}{oldmu}\PY{p}{,} \PY{n}{kclusters}\PY{p}{)}
+             \PY{k}{return} \PY{n}{mu}\PY{p}{,} \PY{n}{kclusters}
+\end{Verbatim}
+
+    The results for the two data sets are are not stable because of the
+first step--choosing the initial centroids randomly. Sometimes this
+algorithm could produce the correct clusters, while other times the
+results are wrong.
+
+    Besides, k-means suffers from various drawbacks:
+
+\begin{itemize}
+\item
+  Inertia makes the assumption that clusters are convex and isotropic,
+  which is not always the case. It responds poorly to elongated
+  clusters, or manifolds with irregular shapes.
+\item
+  Inertia is not a normalized metric: we just know that lower values are
+  better and zero is optimal. But in very high-dimensional spaces,
+  Euclidean distances tend to become inflated.
+\end{itemize}
+
+    
+
+    \begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+6. Future Work
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\begin{itemize}
+\item
+  Efficiency: the optimization of bayesian hierarchical clustering has
+  much to do with the data structure. In the function, I use class to
+  define each cluster, but it is hard to be transformed into C. I will
+  try to use a new data structure to define cluster, thus increasing
+  efficiency.
+\item
+  Accuracy: as discuassed before, the inaccuracy of bayesian
+  hierarchical clustering mainly derives from the choice of probability
+  distribution and its prior. For the prior, I'll find some optimization
+  algorithms to choose the best values for the parameters.
+\end{itemize}
+
+    
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
